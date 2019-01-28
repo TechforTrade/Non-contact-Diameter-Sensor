@@ -6528,9 +6528,9 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <parts>
 <part name="ARDUINO_NANO1" library="ArduinoNanoV30" deviceset="ARDUINO_NANO" device=""/>
 <part name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
-<part name="J2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
-<part name="J3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
-<part name="J4" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
+<part name="PWR" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
+<part name="I2C" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
+<part name="LASER" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
 <part name="J5" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_07" device="" package3d_urn="urn:adsk.eagle:package:38129/1"/>
 <part name="J6" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_07" device="" package3d_urn="urn:adsk.eagle:package:38129/1"/>
 <part name="U$1" library="Arduino-clone" deviceset="STEP-STICK" device=""/>
@@ -6551,15 +6551,15 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <attribute name="VALUE" x="-25.4" y="2.794" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="-25.4" y="13.208" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="J2" gate="G$1" x="109.22" y="66.04" smashed="yes" rot="R180">
+<instance part="PWR" gate="G$1" x="109.22" y="66.04" smashed="yes" rot="R180">
 <attribute name="VALUE" x="111.76" y="70.866" size="1.778" layer="96" font="vector" rot="R180"/>
 <attribute name="NAME" x="111.76" y="60.452" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
-<instance part="J3" gate="G$1" x="109.22" y="43.18" smashed="yes" rot="R180">
+<instance part="I2C" gate="G$1" x="109.22" y="43.18" smashed="yes" rot="R180">
 <attribute name="VALUE" x="111.76" y="48.006" size="1.778" layer="96" font="vector" rot="R180"/>
 <attribute name="NAME" x="111.76" y="37.592" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
-<instance part="J4" gate="G$1" x="109.22" y="55.88" smashed="yes" rot="R180">
+<instance part="LASER" gate="G$1" x="109.22" y="55.88" smashed="yes" rot="R180">
 <attribute name="VALUE" x="111.76" y="60.706" size="1.778" layer="96" font="vector" rot="R180"/>
 <attribute name="NAME" x="111.76" y="50.292" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
@@ -6590,9 +6590,9 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <nets>
 <net name="GND" class="0">
 <segment>
-<pinref part="J4" gate="G$1" pin="1"/>
+<pinref part="LASER" gate="G$1" pin="1"/>
 <wire x1="101.6" y1="55.88" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="J2" gate="G$1" pin="2"/>
+<pinref part="PWR" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="63.5" x2="88.9" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="63.5" x2="63.5" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="63.5" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
@@ -6640,18 +6640,19 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 </net>
 <net name="LASER" class="0">
 <segment>
-<pinref part="J4" gate="G$1" pin="2"/>
+<pinref part="LASER" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="53.34" x2="76.2" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="53.34" x2="76.2" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="ARDUINO_NANO1" gate="G$1" pin="A6"/>
 <wire x1="76.2" y1="45.72" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
+<label x="88.9" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12V" class="0">
 <segment>
 <pinref part="ARDUINO_NANO1" gate="G$1" pin="VIN"/>
 <wire x1="58.42" y1="58.42" x2="58.42" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="J2" gate="G$1" pin="1"/>
+<pinref part="PWR" gate="G$1" pin="1"/>
 <wire x1="58.42" y1="66.04" x2="93.98" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="66.04" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="VMOT"/>
@@ -6667,7 +6668,7 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <segment>
 <pinref part="ARDUINO_NANO1" gate="G$1" pin="A5"/>
 <wire x1="101.6" y1="43.18" x2="58.42" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="J3" gate="G$1" pin="1"/>
+<pinref part="I2C" gate="G$1" pin="1"/>
 <label x="91.44" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -6675,7 +6676,7 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <segment>
 <pinref part="ARDUINO_NANO1" gate="G$1" pin="A4"/>
 <wire x1="101.6" y1="40.64" x2="58.42" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="J3" gate="G$1" pin="2"/>
+<pinref part="I2C" gate="G$1" pin="2"/>
 <label x="91.44" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
