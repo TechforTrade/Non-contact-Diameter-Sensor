@@ -39,14 +39,14 @@ const unsigned char PS_32 = (1 << ADPS2) | (1 << ADPS0);
 const unsigned char PS_128 = (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 
 //PIN DEFS
-int CLKpin = 3;    // <-- Arduino pin delivering the clock pulses to pin 3 (CLK) of the TSL1402R
-int SIpin = 2;     // <-- Arduino pin delivering the SI (serial-input) pulse to pin 2 & 10 of the TSL1402R
-int AOpin1 = 1;    // <-- Arduino pin connected to pin 4 (analog output 1)of the TSL1402R
-int AOpin2 = 2;    // <-- Arduino pin connected to pin 8 (analog output 2)of the TSL1402R
-int stepPin = 9;    //pin 9 is OC1A and PB1
-int dirPin = 10;    //pin D10 is OC1b and PB2 on the same timer as pin 9 but not used for PWM
-int enablePin = 11; //pin D11 is PB3
-int laserPin = 12; // <-- the pin that the laser is connected to.
+int CLKpin = 2;    // <-- Arduino pin delivering the clock pulses to pin 3 (CLK) of the TSL1402R NOTE: clockPuls() uses direct port manipulation.
+int SIpin = 3;     // <-- Arduino pin delivering the SI (serial-input) pulse to pin 2 & 10 of the TSL1402R
+int AOpin1 = 6;    // <-- Arduino pin connected to pin 4 (analog output 1)of the TSL1402R
+int AOpin2 = 7;    // <-- Arduino pin connected to pin 8 (analog output 2)of the TSL1402R
+int stepPin = 9;    //pin 9 is OC1A and PB1. direct port manipulatioin is used
+int dirPin = 8;    //pin D10 is OC1b and PB2 on the same timer as pin 9 but not used for PWM
+int enablePin = 10; //pin D11 is PB3
+//int laserPin = 20; // <-- the pin that the laser is connected to.
 
 
 const int integrationTime = 30;//should be const after calibration
@@ -93,7 +93,7 @@ void setup()
   // Initialize two Arduino pins as digital output:
   pinMode(CLKpin, OUTPUT);
   pinMode(SIpin, OUTPUT);
-  pinMode(laserPin, OUTPUT);
+//  pinMode(laserPin, OUTPUT);
 
   //Pins for coordinating with 3D printer during calibration
   pinMode(dirPin, OUTPUT);
@@ -120,7 +120,7 @@ void setup()
 
   // Next, assert default setting:
   analogReference(DEFAULT);
-  digitalWrite(laserPin, HIGH);//turn on the laser
+//  digitalWrite(laserPin, HIGH);//turn on the laser
   Serial.begin(250000);
   Serial.println("STANDBY");
 
@@ -295,8 +295,8 @@ void loop() {
 void ClockPulse()
 {
   //Using direct port manipulation to get clock as fast as possible.
-  PORTD = PORTD | B00001000;
-  PORTD = PORTD & B11110111;
+  PORTD = PORTD | B00000100;
+  PORTD = PORTD & B11111011;
 }
 
 

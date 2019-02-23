@@ -2280,47 +2280,47 @@ By cl@xganon.com
 http://www.xganon.com</description>
 <packages>
 <package name="STEP-STICK">
-<pad name="EN" x="3.81" y="5.08" drill="0.8" shape="long"/>
-<pad name="MS1" x="3.81" y="2.54" drill="0.8" shape="long"/>
-<pad name="MS2" x="3.81" y="0" drill="0.8" shape="long"/>
-<pad name="MS3" x="3.81" y="-2.54" drill="0.8" shape="long"/>
-<pad name="RST" x="3.81" y="-5.08" drill="0.8" shape="long"/>
-<pad name="SLP" x="3.81" y="-7.62" drill="0.8" shape="long"/>
-<pad name="SPT" x="3.81" y="-10.16" drill="0.8" shape="long"/>
-<pad name="DIR" x="3.81" y="-12.7" drill="0.8" shape="long"/>
-<pad name="VMOT" x="-8.89" y="5.08" drill="0.8" shape="long"/>
-<pad name="GNDM" x="-8.89" y="2.54" drill="0.8" shape="long"/>
-<pad name="2B" x="-8.89" y="0" drill="0.8" shape="long"/>
-<pad name="2A" x="-8.89" y="-2.54" drill="0.8" shape="long"/>
-<pad name="1B" x="-8.89" y="-5.08" drill="0.8" shape="long"/>
-<pad name="1A" x="-8.89" y="-7.62" drill="0.8" shape="long"/>
-<pad name="VCC" x="-8.89" y="-10.16" drill="0.8" shape="long"/>
-<pad name="GND" x="-8.89" y="-12.7" drill="0.8" shape="long"/>
+<pad name="EN" x="-6.35" y="8.89" drill="0.8" shape="long"/>
+<pad name="MS1" x="-6.35" y="6.35" drill="0.8" shape="long"/>
+<pad name="MS2" x="-6.35" y="3.81" drill="0.8" shape="long"/>
+<pad name="MS3" x="-6.35" y="1.27" drill="0.8" shape="long"/>
+<pad name="RST" x="-6.35" y="-1.27" drill="0.8" shape="long"/>
+<pad name="SLP" x="-6.35" y="-3.81" drill="0.8" shape="long"/>
+<pad name="SPT" x="-6.35" y="-6.35" drill="0.8" shape="long"/>
+<pad name="DIR" x="-6.35" y="-8.89" drill="0.8" shape="long"/>
+<pad name="VMOT" x="6.35" y="8.89" drill="0.8" shape="long"/>
+<pad name="GNDM" x="6.35" y="6.35" drill="0.8" shape="long"/>
+<pad name="2B" x="6.35" y="3.81" drill="0.8" shape="long"/>
+<pad name="2A" x="6.35" y="1.27" drill="0.8" shape="long"/>
+<pad name="1B" x="6.35" y="-3.81" drill="0.8" shape="long"/>
+<pad name="1A" x="6.35" y="-1.27" drill="0.8" shape="long"/>
+<pad name="VCC" x="6.35" y="-6.35" drill="0.8" shape="long"/>
+<pad name="GND" x="6.35" y="-8.89" drill="0.8" shape="long"/>
 </package>
 </packages>
 <symbols>
 <symbol name="STEP-STICK">
-<pin name="EN" x="-27.94" y="15.24" visible="pin" length="middle"/>
-<pin name="MS1" x="-27.94" y="12.7" visible="pin" length="middle"/>
-<pin name="MS2" x="-27.94" y="10.16" visible="pin" length="middle"/>
-<pin name="MS3" x="-27.94" y="7.62" visible="pin" length="middle"/>
-<pin name="RST" x="-27.94" y="5.08" visible="pin" length="middle"/>
-<pin name="SLP" x="-27.94" y="2.54" visible="pin" length="middle"/>
-<pin name="STEP" x="-27.94" y="0" visible="pin" length="middle"/>
-<pin name="DIR" x="-27.94" y="-2.54" visible="pin" length="middle"/>
-<pin name="VMOT" x="2.54" y="15.24" visible="pin" length="middle" rot="R180"/>
-<pin name="GNDM" x="2.54" y="12.7" visible="pin" length="middle" rot="R180"/>
-<pin name="2B" x="2.54" y="10.16" visible="pin" length="middle" rot="R180"/>
-<pin name="2A" x="2.54" y="7.62" visible="pin" length="middle" rot="R180"/>
-<pin name="1B" x="2.54" y="5.08" visible="pin" length="middle" rot="R180"/>
-<pin name="1A" x="2.54" y="2.54" visible="pin" length="middle" rot="R180"/>
-<pin name="VCC" x="2.54" y="0" visible="pin" length="middle" rot="R180"/>
-<pin name="GND" x="2.54" y="-2.54" visible="pin" length="middle" rot="R180"/>
-<wire x1="-22.86" y1="17.78" x2="-22.86" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-22.86" y1="-5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="17.78" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="17.78" x2="-22.86" y2="17.78" width="0.254" layer="94"/>
-<text x="-17.78" y="20.32" size="1.778" layer="97">Step Stick</text>
+<pin name="EN" x="-15.24" y="10.16" visible="pin" length="middle"/>
+<pin name="MS1" x="-15.24" y="7.62" visible="pin" length="middle"/>
+<pin name="MS2" x="-15.24" y="5.08" visible="pin" length="middle"/>
+<pin name="MS3" x="-15.24" y="2.54" visible="pin" length="middle"/>
+<pin name="RST" x="-15.24" y="0" visible="pin" length="middle"/>
+<pin name="SLP" x="-15.24" y="-2.54" visible="pin" length="middle"/>
+<pin name="STEP" x="-15.24" y="-5.08" visible="pin" length="middle"/>
+<pin name="DIR" x="-15.24" y="-7.62" visible="pin" length="middle"/>
+<pin name="VMOT" x="15.24" y="10.16" visible="pin" length="middle" rot="R180"/>
+<pin name="GNDM" x="15.24" y="7.62" visible="pin" length="middle" rot="R180"/>
+<pin name="2B" x="15.24" y="5.08" visible="pin" length="middle" rot="R180"/>
+<pin name="2A" x="15.24" y="2.54" visible="pin" length="middle" rot="R180"/>
+<pin name="1B" x="15.24" y="-2.54" visible="pin" length="middle" rot="R180"/>
+<pin name="1A" x="15.24" y="0" visible="pin" length="middle" rot="R180"/>
+<pin name="VCC" x="15.24" y="-5.08" visible="pin" length="middle" rot="R180"/>
+<pin name="GND" x="15.24" y="-7.62" visible="pin" length="middle" rot="R180"/>
+<wire x1="-10.16" y1="12.7" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-10.16" x2="10.16" y2="12.7" width="0.254" layer="94"/>
+<wire x1="10.16" y1="12.7" x2="-10.16" y2="12.7" width="0.254" layer="94"/>
+<text x="-5.08" y="15.24" size="1.778" layer="97">Step Stick</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -6527,15 +6527,15 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 </classes>
 <parts>
 <part name="ARDUINO_NANO1" library="ArduinoNanoV30" deviceset="ARDUINO_NANO" device=""/>
-<part name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
+<part name="WATER-SENSOR" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
 <part name="PWR" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
 <part name="I2C" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
 <part name="LASER" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
-<part name="J5" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_07" device="" package3d_urn="urn:adsk.eagle:package:38129/1"/>
-<part name="J6" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_07" device="" package3d_urn="urn:adsk.eagle:package:38129/1"/>
+<part name="CCD-1-7" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_07" device="" package3d_urn="urn:adsk.eagle:package:38129/1"/>
+<part name="CCD-14-8" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_07" device="" package3d_urn="urn:adsk.eagle:package:38129/1"/>
 <part name="U$1" library="Arduino-clone" deviceset="STEP-STICK" device=""/>
-<part name="J7" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
-<part name="J8" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
+<part name="MOTOR-2A2B" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
+<part name="MOTOR-1A1B" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="3.5MM" package3d_urn="urn:adsk.eagle:package:38050/1"/>
 <part name="C1" library="resistor - edit" deviceset="C-EU" device="050-025X075" package3d_urn="urn:adsk.eagle:package:26160/1" value="0.1uf"/>
 </parts>
 <sheets>
@@ -6547,7 +6547,7 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <attribute name="NAME" x="22.86" y="15.24" size="1.778" layer="95"/>
 <attribute name="VALUE" x="22.86" y="12.7" size="1.778" layer="96"/>
 </instance>
-<instance part="J1" gate="G$1" x="-22.86" y="7.62" smashed="yes">
+<instance part="WATER-SENSOR" gate="G$1" x="-22.86" y="7.62" smashed="yes">
 <attribute name="VALUE" x="-25.4" y="2.794" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="-25.4" y="13.208" size="1.778" layer="95" font="vector"/>
 </instance>
@@ -6559,24 +6559,24 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <attribute name="VALUE" x="111.76" y="48.006" size="1.778" layer="96" font="vector" rot="R180"/>
 <attribute name="NAME" x="111.76" y="37.592" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
-<instance part="LASER" gate="G$1" x="109.22" y="55.88" smashed="yes" rot="R180">
-<attribute name="VALUE" x="111.76" y="60.706" size="1.778" layer="96" font="vector" rot="R180"/>
-<attribute name="NAME" x="111.76" y="50.292" size="1.778" layer="95" font="vector" rot="R180"/>
+<instance part="LASER" gate="G$1" x="109.22" y="53.34" smashed="yes" rot="R180">
+<attribute name="VALUE" x="111.76" y="58.166" size="1.778" layer="96" font="vector" rot="R180"/>
+<attribute name="NAME" x="111.76" y="47.752" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
-<instance part="J5" gate="G$1" x="12.7" y="104.14" smashed="yes" rot="R270">
+<instance part="CCD-1-7" gate="G$1" x="12.7" y="104.14" smashed="yes" rot="R270">
 <attribute name="VALUE" x="2.794" y="109.22" size="1.778" layer="96" font="vector" rot="R270"/>
 <attribute name="NAME" x="25.908" y="109.22" size="1.778" layer="95" font="vector" rot="R270"/>
 </instance>
-<instance part="J6" gate="G$1" x="43.18" y="104.14" smashed="yes" rot="R270">
+<instance part="CCD-14-8" gate="G$1" x="43.18" y="104.14" smashed="yes" rot="R270">
 <attribute name="VALUE" x="33.274" y="109.22" size="1.778" layer="96" font="vector" rot="R270"/>
 <attribute name="NAME" x="56.388" y="109.22" size="1.778" layer="95" font="vector" rot="R270"/>
 </instance>
-<instance part="U$1" gate="G$1" x="-38.1" y="60.96" smashed="yes"/>
-<instance part="J7" gate="G$1" x="-7.62" y="83.82" smashed="yes" rot="R180">
+<instance part="U$1" gate="G$1" x="-48.26" y="66.04" smashed="yes"/>
+<instance part="MOTOR-2A2B" gate="G$1" x="-7.62" y="83.82" smashed="yes" rot="R180">
 <attribute name="VALUE" x="-5.08" y="88.646" size="1.778" layer="96" font="vector" rot="R180"/>
 <attribute name="NAME" x="-5.08" y="78.232" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
-<instance part="J8" gate="G$1" x="-7.62" y="71.12" smashed="yes" rot="R180">
+<instance part="MOTOR-1A1B" gate="G$1" x="-7.62" y="71.12" smashed="yes" rot="R180">
 <attribute name="VALUE" x="-5.08" y="75.946" size="1.778" layer="96" font="vector" rot="R180"/>
 <attribute name="NAME" x="-5.08" y="65.532" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
@@ -6591,14 +6591,14 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <net name="GND" class="0">
 <segment>
 <pinref part="LASER" gate="G$1" pin="1"/>
-<wire x1="101.6" y1="55.88" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="53.34" x2="81.28" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="PWR" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="63.5" x2="88.9" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="63.5" x2="63.5" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="63.5" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="63.5" x2="81.28" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="63.5" x2="81.28" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="ARDUINO_NANO1" gate="G$1" pin="GND@1"/>
 <wire x1="15.24" y1="50.8" x2="17.78" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="J6" gate="G$1" pin="3"/>
+<pinref part="CCD-14-8" gate="G$1" pin="3"/>
 <wire x1="17.78" y1="88.9" x2="17.78" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="99.06" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="76.2" x2="17.78" y2="76.2" width="0.1524" layer="91"/>
@@ -6610,19 +6610,19 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <wire x1="15.24" y1="63.5" x2="15.24" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="50.8" x2="15.24" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="10.16" x2="-2.54" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="2"/>
+<pinref part="WATER-SENSOR" gate="G$1" pin="2"/>
 <wire x1="-15.24" y1="10.16" x2="-2.54" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="63.5" x2="15.24" y2="63.5" width="0.1524" layer="91"/>
-<junction x="63.5" y="63.5"/>
+<wire x1="81.28" y1="63.5" x2="15.24" y2="63.5" width="0.1524" layer="91"/>
+<junction x="81.28" y="63.5"/>
 <junction x="15.24" y="63.5"/>
 <pinref part="U$1" gate="G$1" pin="GNDM"/>
-<wire x1="-35.56" y1="73.66" x2="-27.94" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="73.66" x2="-27.94" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="73.66" x2="-27.94" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="111.76" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="111.76" x2="88.9" y2="63.5" width="0.1524" layer="91"/>
 <junction x="88.9" y="63.5"/>
 <pinref part="U$1" gate="G$1" pin="GND"/>
-<wire x1="-35.56" y1="58.42" x2="-2.54" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="58.42" x2="-2.54" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="58.42" x2="-2.54" y2="50.8" width="0.1524" layer="91"/>
 <junction x="-2.54" y="50.8"/>
 <label x="93.98" y="63.5" size="1.778" layer="95"/>
@@ -6630,22 +6630,12 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <wire x1="2.54" y1="88.9" x2="17.78" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J5" gate="G$1" pin="5"/>
+<pinref part="CCD-1-7" gate="G$1" pin="5"/>
 <wire x1="17.78" y1="99.06" x2="17.78" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="91.44" x2="60.96" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="ARDUINO_NANO1" gate="G$1" pin="GND@2"/>
 <wire x1="60.96" y1="91.44" x2="60.96" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="55.88" x2="58.42" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="LASER" class="0">
-<segment>
-<pinref part="LASER" gate="G$1" pin="2"/>
-<wire x1="101.6" y1="53.34" x2="76.2" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="53.34" x2="76.2" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="ARDUINO_NANO1" gate="G$1" pin="A6"/>
-<wire x1="76.2" y1="45.72" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
-<label x="88.9" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -6656,7 +6646,7 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <wire x1="58.42" y1="66.04" x2="93.98" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="66.04" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="VMOT"/>
-<wire x1="-35.56" y1="76.2" x2="-30.48" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="76.2" x2="-30.48" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="-30.48" y1="76.2" x2="-30.48" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="-30.48" y1="114.3" x2="93.98" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="114.3" x2="93.98" y2="66.04" width="0.1524" layer="91"/>
@@ -6682,7 +6672,7 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 </net>
 <net name="5V" class="0">
 <segment>
-<pinref part="J5" gate="G$1" pin="1"/>
+<pinref part="CCD-1-7" gate="G$1" pin="1"/>
 <wire x1="7.62" y1="99.06" x2="7.62" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="96.52" x2="7.62" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="73.66" x2="7.62" y2="68.58" width="0.1524" layer="91"/>
@@ -6692,17 +6682,17 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <wire x1="68.58" y1="50.8" x2="58.42" y2="50.8" width="0.1524" layer="91"/>
 <label x="40.64" y="68.58" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="VCC"/>
-<wire x1="-35.56" y1="60.96" x2="7.62" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="60.96" x2="7.62" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="60.96" x2="7.62" y2="68.58" width="0.1524" layer="91"/>
 <junction x="7.62" y="68.58"/>
 <pinref part="U$1" gate="G$1" pin="MS1"/>
-<wire x1="-66.04" y1="73.66" x2="-73.66" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="73.66" x2="-73.66" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="73.66" x2="-73.66" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="MS2"/>
-<wire x1="-73.66" y1="71.12" x2="-66.04" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="71.12" x2="-63.5" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="MS3"/>
 <wire x1="-73.66" y1="71.12" x2="-73.66" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="-73.66" y1="68.58" x2="-66.04" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="68.58" x2="-63.5" y2="68.58" width="0.1524" layer="91"/>
 <junction x="-73.66" y="71.12"/>
 <wire x1="-73.66" y1="71.12" x2="-73.66" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="88.9" x2="-2.54" y2="88.9" width="0.1524" layer="91"/>
@@ -6712,65 +6702,68 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="2.54" y1="96.52" x2="7.62" y2="96.52" width="0.1524" layer="91"/>
 <junction x="7.62" y="96.52"/>
+<pinref part="LASER" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="50.8" x2="101.6" y2="50.8" width="0.1524" layer="91"/>
+<junction x="68.58" y="50.8"/>
 </segment>
 </net>
 <net name="SI1" class="0">
 <segment>
-<pinref part="J5" gate="G$1" pin="2"/>
-<pinref part="ARDUINO_NANO1" gate="G$1" pin="D2"/>
+<pinref part="CCD-1-7" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="99.06" x2="10.16" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="78.74" x2="10.16" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="48.26" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="78.74" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
 <label x="7.62" y="58.42" size="1.778" layer="95"/>
-<pinref part="J6" gate="G$1" pin="5"/>
+<pinref part="CCD-14-8" gate="G$1" pin="5"/>
 <wire x1="48.26" y1="99.06" x2="48.26" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="78.74" x2="10.16" y2="78.74" width="0.1524" layer="91"/>
 <junction x="10.16" y="78.74"/>
+<pinref part="ARDUINO_NANO1" gate="G$1" pin="D3"/>
+<wire x1="10.16" y1="45.72" x2="17.78" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CLK" class="0">
 <segment>
-<pinref part="J5" gate="G$1" pin="3"/>
-<wire x1="12.7" y1="99.06" x2="12.7" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="ARDUINO_NANO1" gate="G$1" pin="D3"/>
-<wire x1="12.7" y1="45.72" x2="17.78" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="CCD-1-7" gate="G$1" pin="3"/>
+<wire x1="12.7" y1="99.06" x2="12.7" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="ARDUINO_NANO1" gate="G$1" pin="D2"/>
+<wire x1="12.7" y1="48.26" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AO1" class="0">
 <segment>
-<pinref part="J5" gate="G$1" pin="4"/>
+<pinref part="CCD-1-7" gate="G$1" pin="4"/>
 <wire x1="15.24" y1="99.06" x2="15.24" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="73.66" x2="71.12" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="71.12" y1="73.66" x2="71.12" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="ARDUINO_NANO1" gate="G$1" pin="A1"/>
-<wire x1="71.12" y1="33.02" x2="58.42" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="73.66" x2="71.12" y2="45.72" width="0.1524" layer="91"/>
 <label x="30.48" y="73.66" size="1.778" layer="95"/>
+<pinref part="ARDUINO_NANO1" gate="G$1" pin="A6"/>
+<wire x1="71.12" y1="45.72" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AO2" class="0">
 <segment>
-<pinref part="J6" gate="G$1" pin="7"/>
+<pinref part="CCD-14-8" gate="G$1" pin="7"/>
 <wire x1="53.34" y1="99.06" x2="53.34" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="76.2" x2="73.66" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="76.2" x2="73.66" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="ARDUINO_NANO1" gate="G$1" pin="A2"/>
-<wire x1="73.66" y1="35.56" x2="58.42" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="76.2" x2="73.66" y2="48.26" width="0.1524" layer="91"/>
 <label x="63.5" y="76.2" size="1.778" layer="95"/>
+<pinref part="ARDUINO_NANO1" gate="G$1" pin="A7"/>
+<wire x1="73.66" y1="48.26" x2="58.42" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="RST"/>
-<wire x1="-66.04" y1="66.04" x2="-71.12" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="66.04" x2="-71.12" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="SLP"/>
 <wire x1="-71.12" y1="66.04" x2="-71.12" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="-71.12" y1="63.5" x2="-66.04" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="63.5" x2="-63.5" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="STEP" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="STEP"/>
-<wire x1="-66.04" y1="60.96" x2="-73.66" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="60.96" x2="-73.66" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="ARDUINO_NANO1" gate="G$1" pin="D9"/>
 <wire x1="-73.66" y1="60.96" x2="-73.66" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="30.48" x2="17.78" y2="30.48" width="0.1524" layer="91"/>
@@ -6780,73 +6773,72 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <net name="DIRECTION" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="DIR"/>
-<wire x1="-66.04" y1="58.42" x2="-71.12" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="58.42" x2="-71.12" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="58.42" x2="-71.12" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="-71.12" y1="33.02" x2="10.16" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="33.02" x2="10.16" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="ARDUINO_NANO1" gate="G$1" pin="D10"/>
-<wire x1="10.16" y1="27.94" x2="17.78" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="33.02" x2="17.78" y2="33.02" width="0.1524" layer="91"/>
 <label x="-53.34" y="33.02" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="WATER" class="0">
-<segment>
-<pinref part="J1" gate="G$1" pin="1"/>
-<wire x1="-15.24" y1="7.62" x2="0" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="0" y1="7.62" x2="0" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="ARDUINO_NANO1" gate="G$1" pin="D12"/>
-<wire x1="0" y1="22.86" x2="17.78" y2="22.86" width="0.1524" layer="91"/>
-<label x="2.54" y="22.86" size="1.778" layer="95"/>
+<pinref part="ARDUINO_NANO1" gate="G$1" pin="D8"/>
 </segment>
 </net>
 <net name="ENABLE" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="EN"/>
-<wire x1="-66.04" y1="76.2" x2="-76.2" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-76.2" y1="76.2" x2="-76.2" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="-76.2" y1="25.4" x2="17.78" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="ARDUINO_NANO1" gate="G$1" pin="D11"/>
+<wire x1="-63.5" y1="76.2" x2="-76.2" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="76.2" x2="-76.2" y2="27.94" width="0.1524" layer="91"/>
 <label x="-53.34" y="25.4" size="1.778" layer="95"/>
+<pinref part="ARDUINO_NANO1" gate="G$1" pin="D10"/>
+<wire x1="-76.2" y1="27.94" x2="-76.2" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="27.94" x2="-76.2" y2="27.94" width="0.1524" layer="91"/>
+<junction x="-76.2" y="27.94"/>
 </segment>
 </net>
 <net name="2B" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="2B"/>
-<wire x1="-35.56" y1="71.12" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="71.12" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="-25.4" y1="71.12" x2="-25.4" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="J7" gate="G$1" pin="1"/>
+<pinref part="MOTOR-2A2B" gate="G$1" pin="1"/>
 <wire x1="-25.4" y1="83.82" x2="-15.24" y2="83.82" width="0.1524" layer="91"/>
 <label x="-22.86" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="2A" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="2A"/>
-<wire x1="-35.56" y1="68.58" x2="-22.86" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="-22.86" y1="68.58" x2="-22.86" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="J7" gate="G$1" pin="2"/>
+<pinref part="MOTOR-2A2B" gate="G$1" pin="2"/>
 <wire x1="-22.86" y1="81.28" x2="-15.24" y2="81.28" width="0.1524" layer="91"/>
 <label x="-22.86" y="81.28" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="1B" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="1B"/>
-<wire x1="-35.56" y1="66.04" x2="-20.32" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="-20.32" y1="66.04" x2="-20.32" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="J8" gate="G$1" pin="1"/>
-<wire x1="-20.32" y1="71.12" x2="-15.24" y2="71.12" width="0.1524" layer="91"/>
-<label x="-20.32" y="71.12" size="1.778" layer="95"/>
+<wire x1="-22.86" y1="81.28" x2="-22.86" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="2A"/>
+<wire x1="-22.86" y1="68.58" x2="-33.02" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="1A" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="1A"/>
-<wire x1="-35.56" y1="63.5" x2="-17.78" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="66.04" x2="-20.32" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="66.04" x2="-20.32" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="MOTOR-1A1B" gate="G$1" pin="1"/>
+<wire x1="-20.32" y1="71.12" x2="-15.24" y2="71.12" width="0.1524" layer="91"/>
+<label x="-20.32" y="71.12" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="WATER-SENSOR" gate="G$1" pin="1"/>
+<wire x1="-15.24" y1="7.62" x2="63.5" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="7.62" x2="63.5" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="ARDUINO_NANO1" gate="G$1" pin="A3"/>
+<wire x1="63.5" y1="38.1" x2="58.42" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="1B" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="1B"/>
+<wire x1="-33.02" y1="63.5" x2="-17.78" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="-17.78" y1="63.5" x2="-17.78" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="J8" gate="G$1" pin="2"/>
+<pinref part="MOTOR-1A1B" gate="G$1" pin="2"/>
 <wire x1="-17.78" y1="68.58" x2="-15.24" y2="68.58" width="0.1524" layer="91"/>
-<label x="-22.86" y="63.5" size="1.778" layer="95"/>
+<label x="-25.4" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
