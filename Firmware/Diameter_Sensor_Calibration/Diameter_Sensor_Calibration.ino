@@ -16,68 +16,45 @@
 
 #include <Wire.h>
 
-
-
-#define REG_MAP_SIZE 47
-#define MAX_ENTRY_SIZE 8 //The largest size in bytes of any registerMap entry
-#define MAX_SENT_BYTES 5
-#define MIN_WRITE_INDEX 4 //The highest index at which writing can be initiated in the register map
-#define MAX_WRITE_INDEX 42 //The highest index at which writing can be initiated in the register map
-// defines for setting and clearing register bits
-#ifndef cbi
-#define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
-#endif
-#ifndef sbi
-#define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
-#endif
-
-#define CALIBRATE
-
-
 // Define various ADC prescaler:
 const unsigned char PS_32 = (1 << ADPS2) | (1 << ADPS0);
 const unsigned char PS_128 = (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 
 //PIN DEFS
-int CLKpin = 3;    // <-- Arduino pin delivering the clock pulses to pin 3 (CLK) of the TSL1402R
-int SIpin = 2;     // <-- Arduino pin delivering the SI (serial-input) pulse to pin 2 & 10 of the TSL1402R
-int AOpin1 = 1;    // <-- Arduino pin connected to pin 4 (analog output 1)of the TSL1402R
-int AOpin2 = 2;    // <-- Arduino pin connected to pin 8 (analog output 2)of the TSL1402R
-int stepPin = 9;    //pin 9 is OC1A and PB1
-int dirPin = 10;    //pin D10 is OC1b and PB2 on the same timer as pin 9 but not used for PWM
-int enablePin = 11; //pin D11 is PB3
+//int CLKpin = 3;    // <-- Arduino pin delivering the clock pulses to pin 3 (CLK) of the TSL1402R
+//int SIpin = 2;     // <-- Arduino pin delivering the SI (serial-input) pulse to pin 2 & 10 of the TSL1402R
+//int AOpin1 = 1;    // <-- Arduino pin connected to pin 4 (analog output 1)of the TSL1402R
+//int AOpin2 = 2;    // <-- Arduino pin connected to pin 8 (analog output 2)of the TSL1402R
+//int stepPin = 9;    //pin 9 is OC1A and PB1
+//int dirPin = 10;    //pin D10 is OC1b and PB2 on the same timer as pin 9 but not used for PWM
+//int enablePin = 11; //pin D11 is PB3
 int laserPin = 12; // <-- the pin that the laser is connected to.
 
+int CLKpin = 2;    // <-- Arduino pin delivering the clock pulses to pin 3 (CLK) of the TSL1402R NOTE: clockPuls() uses direct port manipulation.
+int SIpin = 3;     // <-- Arduino pin delivering the SI (serial-input) pulse to pin 2 & 10 of the TSL1402R
+int AOpin1 = 6;    // <-- Arduino pin connected to pin 4 (analog output 1)of the TSL1402R
+int AOpin2 = 7;    // <-- Arduino pin connected to pin 8 (analog output 2)of the TSL1402R
+int stepPin = 9;    //pin 9 is OC1A and PB1. direct port manipulatioin is used
+int dirPin = 8;    //pin D10 is OC1b and PB2 on the same timer as pin 9 but not used for PWM
+int enablePin = 10; //pin D11 is PB3
+//int laserPin = 20; // <-- the pin that the laser is connected to.
 
 const int integrationTime = 30;//should be const after calibration
 const int ADCDelay = 0;
 const int leftMargin = 10;//The number of pixels to omit from the left side of the sensor. Sometimes the pixels at the edge of the sensor don't read correctly.
 const int rightMargin = 10;//The number of pixels to omit from the right side of the sensor. Sometimes the pixels at the edge of the sensor don't read correctly.
 
-//The following are values used for determining the diameter based on output from the sensor
+//The following array holds the values used for determining the diameter based on output from the sensor
 int adcVals[256];// The array where the readout of the photodiodes is stored, as integers
 
-
-//Globals used for calculating/reporting filament diameter
-const float pixelPitch = 0.0635; //the pitch of the CCD array
-const int leftGap = 5;//The number of pixels to omit from the sensor. Some times the pixels at the edge of the sensor don't read correctly.
-const int rightGap = 235;//The number of pixels to omit from the right side of the sensor.
-const int minBackgroundValue = 350;
-const int jumpIndex = 0;
-
-float dia; //shouldn't b needed
-float actDia; //should be return value
-float lPos; //should be local
-float rPos;//should be local
-float leftX; //The x position of the left side of the shadow as calculated using the line and the y offset.
-float rightX;//The x position of the right side of the shadow as calculated using the line and the y offset.
-int lIndex;//should be local
-int rIndex;//should be local
-float lValue;//should be local
-float rValue;//should be local
-
 //Jump detection
+//For some unknown reason, the pixel intensities twich between a low and high value (about 10 adc units???)
+//to improve stability, only the lower values are used.
+//jumpDetected is true if a jump was detected i.e. a high value was just reported.
+//This is only measured at one pixel
+//See the function detectJump()
 boolean jumpDetected = false;
+const int jumpPixel = 1;//The pixel used to determine wherther or not the pixel intensities have "jumped"
 
 //timing and control
 unsigned long now;
@@ -343,14 +320,24 @@ adcVals[138] = adcVals[138] * 1.66320166320166-46.4241164241164;
   Serial.println();// <-- Send a linebreak to indicate the measurement is transmitted.
 }
 
+/* Comments on detectJump() 
+// For some unknown reason, the pixel intensities twich between a low and high value (about 10 adc units???)
+// To improve stability, only the lower values are used.
+// jumpDetected is true if a jump was detected i.e. a high value was just reported.
+// The static int index is the pixel that is used for jump detection. 
+// If the index pixel is in the shadow of the filament, there may be a problem I'm not sure.
 
+// How the function works:
+//  The ten most recent values for the 
+*/
+//This is only measured at one pixel
 void detectJump() {
   static int index = 0;
   static float boxCar[10];
   static int sum;
   static float average;
 
-  int val = adcVals[1];
+  int val = adcVals[jumpPixel];
   sum += val;
   sum -= boxCar[index];
 
