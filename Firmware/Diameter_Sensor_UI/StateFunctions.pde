@@ -1,15 +1,10 @@
 void standby() {
   String[] valStrings = split(inString, ' ');
 
-  for (int i=1; i<valStrings.length; i++) {
- //dataY[i-1] = float(valStrings[i])*bgCorrection[i-1][0]+bgCorrection[i-1][1];
+  for (int i=1; i<valStrings.length-1; i++) {
         dataY[i-1] = float(valStrings[i]);
-    if (i == dataY.length-1) {
-      break;
-    }
   }
-  //dataY[20] = dataY[20]*750/418-35;
-  //if (!detectYJump()) {
+
   getDiameter();
   getAvgDia(actDia);
 
@@ -17,9 +12,15 @@ void standby() {
   serial.write('D');
 }
 
+
+
+
+
+
 void getRawData() {
   String[] valStrings = split(inString, ' ');
 
+  //for (int i=1; i<valStrings.length; i++) {
   for (int i=1; i<valStrings.length; i++) {
     dataY[i-1] = float(valStrings[i]);
      //dataY[i-1] = float(valStrings[i])*bgCorrection[i-1][0]+bgCorrection[i-1][1];
@@ -31,8 +32,10 @@ void getRawData() {
   }
   for (int i=0; i<256; i++) {
     print(dataY[i]+"\t");
+    rawDataWriter.print(dataY[i]+"\t");
   } 
   println();
+  rawDataWriter.println();
   //if (detectYJump()) {
   //  serial.write('D');
   //} else {
@@ -44,6 +47,11 @@ void getRawData() {
 
   serial.write('D');
 }
+
+
+
+
+
 
 void beginHome() {
   //There is just error in Logic here. Coming from the right works coming from the left has flawed logic.
@@ -101,6 +109,11 @@ void beginHome() {
   delay(100);
 }
 
+
+
+
+
+
 //to enter the home state, the position should b within 0.01mm of the overshoot position
 void home() {
   float startSlowApproach = 0.03;
@@ -148,6 +161,9 @@ void home() {
   }
   delay(100);
 }
+
+
+
 
 
 
@@ -207,6 +223,12 @@ void beginCollectBackground() {
   delay(100);
 }
 
+
+
+
+
+
+
 void collectBackground() {
   String[] valStrings = split(inString, ' ');
   valStrings[0] = "" + valStrings[0].charAt(0);
@@ -262,6 +284,12 @@ void collectBackground() {
   }
 }
 
+
+
+
+
+
+
 void exitCollectBackground() {
   String[] valStrings = split(inString, ' ');
   valStrings[0] = "" + valStrings[0].charAt(0);
@@ -281,6 +309,12 @@ void exitCollectBackground() {
     serial.write("W");
   }
 }
+
+
+
+
+
+
 
 
 void beginScan() {
@@ -316,6 +350,12 @@ void beginScan() {
     break;
   }
 }
+
+
+
+
+
+
 
 void scan() {
   String[] valStrings = split(inString, ' ');
@@ -374,6 +414,13 @@ void scan() {
     break;
   }
 }
+
+
+
+
+
+
+
 void multiscan() {
   String[] valStrings = split(inString, ' ');
   valStrings[0] = "" + valStrings[0].charAt(0);
@@ -401,6 +448,12 @@ void multiscan() {
     }
   }
 }
+
+
+
+
+
+
 
 void testCalibration() {
 

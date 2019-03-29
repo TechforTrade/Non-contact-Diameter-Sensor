@@ -1,8 +1,77 @@
 
 //Diameter sensor UI by Matt Rogge August 25, 2016
-//todo
-// - Draw vertical lines where the diameter is 
-// - receive diameter measurements and edges
+
+//Diameter_Sensor_UI is used to visualize the data from the diameter sensor.
+//It is also used to calibrate the diameter sensor.
+//
+//How it works:
+//  Draw()
+//  The draw function continuousily draws a graph (XYChart lineChart) of the dataY array
+//  If it can find a shadow, it graphs the width of the shadow using the XYChart diaChart.
+//  So draw is just constantly showing the most recent info it has for all of the variables.
+//
+//  serialEvent(Serial p)
+//    serialEvent is called any time Processing receives serial info from the arduino
+//    The arduino sends  two types of information to Processing:
+//        characters that signify a type of event
+//        Integers that are the ADC values recorded from the CCD array
+//    serialEvent(Serial p) is works like the loop that calls the state functions.
+//   
+//  State Functions:
+//    There are many different states for the finite state machine here.
+//    Each state takes the serial data that Processing just recieved and decides what to do.
+//    The current state will continue executing each time it is called by serialEvent until the state is changed.
+//    Some state functions set a new state at some point in ther execution. 
+//        E.G. beginHome() sets the state to HOME once the initial homing tasks have been done.
+//    Some state functions do not specify a change to another state.
+//    The only way that the program will enter another state is with user input.
+//        E.g. standby() just updates the dataY array.
+//        To switch to a different state, the user must press a key which triggers the keyPressed() function.
+//        The keyPressed() function in turn may set a new state.
+//    Many state functions send serial info to the arduino.
+//        E.G.standby() sends a 'D' to the arduino telling it to send data.
+//  Serial data character sent from the arduino (confirmation that something happened. the first character of every serial event):
+//    M - A big move by the stepper has completed.
+//    D - data sent
+//    s - does nothing that I can tell
+//    I - response from arduino that integration time was increased by 10us.
+//    L - response from arduino that integration time was decreased by 10us
+//    F - Stepper direction pin was set to low
+//    R - Stepper direction pin was set to high
+//
+//  Serial data characters sent to the arduio. Typically a command to do something in the form of serial.write("D"):
+//    D - send data
+//    s - does nothing
+//    I - increase integration time by 10us
+//    L - decrease integration time by 10us
+//    M - big stepper move. Must be followed by an integer number of steps e.g. M350
+//    F - Set stepper direction pin to low
+//    R - Set stepper direction pin to high
+//    E - does nothing... used when background should be taken and filament is not in front of sensor.
+//    h - Move one microstep
+//    m - move 4 microsteps i.e. delta. Used during a scan.
+//    W - does nothing
+//
+//  User input - Pressing the following keys triggers the keyPressed function:
+//    h - home the calibration tool. The filament shadow must be detected befor starting the homing process.
+//    s - switch to the STANDBY state
+//    d - print raw data coming from the arduino to the console. 
+//        It is also saved to rawData.txt, but you must press 'f' to save it.
+//    b - collect background data. It is written to a file called background.txt
+//    m - do a multi scan. I.e. scan the filament accross the sensor x times also collect background data.
+//        data is saved in scan0.txt, scan1.txt etc.
+//    1 - do one scan and also collect background.
+//    i - increase integration time by 10 us.
+//    l - decrease integration time bo 10 us.
+//    f - flush the rawData writer. IE Save it
+//    p - work up data. This creates the leftMap.txt and rightMap.txt that are ready to copy and paste into leftMap.pde and rightMap.pde
+//    c - Works up the data but formats it for arduino in c. Uses leftMap.txt and rightMap.txt again.
+//    t - tests the calibration by scanning the filament accross the sensor and measurs the diameter using the left and right map
+//        makes a file called "Calibration Test.txt" that has screw position and diameter data.
+//
+//    
+
+
 import java.util.*;
 import processing.serial.*; 
 import org.gicentre.utils.stat.*;    // For chart classes.
@@ -78,9 +147,9 @@ float endPos = .1;
 int startLIndex = 225;
 
 float dist = startPos-endPos;
-int steps = 1;
+int steps = 4;
 float position;
-float delta = steps*(0.5/(200*4));
+float delta = steps*(0.5/(200*16)); //The distance to move for each measurement. 0.5 mm pitch, 200 steps per rev, 16 microsteps per step.
 int numMeasurements = int((dist/delta)); //the numberof measurements to make
 float[] rightEdges = new float[calNumSamples];
 float[] leftEdges = new float[calNumSamples];
@@ -248,17 +317,20 @@ void draw() {
 } 
 
 
-
+//This function is called when there is a serial event.
+//the serial data is read into the variable inString
+//Each time serial data is recieved, the current state function is called
+//The current state function handles the serial data as is suitable for the state.
 void serialEvent(Serial p) { 
   try {
     inString = p.readString();
     serial.clear();
-
-    //println(currentState);
-    //println(inString);
+  
     if (inString == null) {
       return;
     }
+    
+    //run the current state function now that data has been received.
     switch (currentState) {
 
     case STANDBY:
