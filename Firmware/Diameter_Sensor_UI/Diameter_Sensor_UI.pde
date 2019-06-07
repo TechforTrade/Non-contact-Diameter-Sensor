@@ -1,4 +1,3 @@
-
 //Diameter sensor UI by Matt Rogge August 25, 2016
 //todo
 // - Draw vertical lines where the diameter is 
@@ -11,7 +10,15 @@ import java.util.ArrayList;
 import static java.util.Arrays.asList;
 import java.util.List;
 
+//Change to switch intensity normalisation on and off
+// For flat line use:
+boolean normaliseIntensity = true;
+// To check laser power use:
+//boolean normaliseIntensity = false;
 
+//Set to true to log data to file, false to turn logging off
+boolean logDataY = false;
+PrintWriter dataYOut;
 
 LinkedList<Float> diaList = new LinkedList<Float>();
 
@@ -30,6 +37,9 @@ XYChart lineChart;
 float[] dataX = new float[256];//The data for the x axis
 float[] dataY = new float[256];
 
+float[] firstYData =  new float[256];
+boolean first;
+
 
 
 ;//The data for the y axis
@@ -44,10 +54,10 @@ float []calibrationChartRightY = new float[300];
 
 
 //Globals used for calculating/reporting filament diameter
-float pixelPitch = 0.05707; //the pitch of the CCD array. This is appearent NOT FROM DATASHEET
+float pixelPitch = 0.707; //0.05707 the pitch of the CCD array. This is appearent NOT FROM DATASHEET
 int leftGap = 1;//The number of pixels to omit from the sensor. Some times the pixels at the edge of the sensor don't read correctly.
 int rightGap = 254;//The number of pixels to omit from the right side of the sensor.
-int minBackgroundValue = 400;
+int minBackgroundValue = 250;
 
 float dia;
 float actDia;
@@ -102,7 +112,7 @@ int bgNumSamples = 20;//number of bg samples to collect per test.
 int[] bgReading = new int[256]; // location to store bg scans. 
 char backgroundDir;
 int backgroundStepsTaken;
-float backgroundPosition = -2.64;
+float backgroundPosition = -1.7;
 //float backgroundPosition = -.22;
 int skipData = 15;
 int skipNum = 0;
@@ -150,7 +160,10 @@ void setup() {
   printArray(Serial.list());
 
 
-
+  if (logDataY)
+  {
+    dataYOut = createWriter("dataY.dat");
+  }
 
   //Chart Setup
 
@@ -158,13 +171,16 @@ void setup() {
 
   // Both x and y data set here.  
   lineChart = new XYChart(this);
+  first = true;
+  firstYData = new float[256];
   dataX = new float[256];
   dataY = new float[256];
   for (int i=0; i<dataX.length; i++) {
     dataX[i] = i*pixelPitch;
   }
   lineChart.setData(dataX, dataY);
-
+  
+  
   // Axis formatting and labels.
   lineChart.showXAxis(true); 
   lineChart.showYAxis(true); 
@@ -196,7 +212,7 @@ void setup() {
   diaChart.setMaxX(256*pixelPitch);
 
 
-  // Symbol colours
+  //// Symbol colours
   diaChart.setPointColour(color(255, 0, 0, 100));
   diaChart.setPointSize(8);
   diaChart.setLineWidth(4);
@@ -215,8 +231,8 @@ void draw() {
   textSize(9);
   //text("received: " + inString, 10,50);
 
-  lineChart.setData(dataX, dataY);
-  diaChart.setData(diaDataX, diaDataY);
+  //lineChart.setData(dataX, dataY);
+  //diaChart.setData(diaDataX, diaDataY);
 
   lineChart.draw(15, 15, (width-30), (height)/2-40);
   diaChart.draw(15, 15, (width-30), (height)/2-40);
@@ -379,7 +395,9 @@ void keyPressed() {
   case 'c':
     workupDataC();
     break;
-
+  case 'x':
+   serial.write('X');
+   break;
   case 't':
     testWriter = createWriter("Calibration Test.txt");
     testWriter.println("Screw Position (mm)\tDiameter (mm)\tAvg Dia (mm)");
