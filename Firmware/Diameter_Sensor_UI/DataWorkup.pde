@@ -110,7 +110,7 @@ void workupData() {
   BufferedReader[] reader = new BufferedReader[scans];
 
   //create scans Readers
-  int selectedScan = 5;
+  int selectedScan = 0;
   reader[selectedScan] = createReader("scan"+selectedScan+".txt");
   //Read and throw away first line. Just titles for graphing in excel
   try {
@@ -149,8 +149,8 @@ void workupData() {
     rVal[selectedScan] =  float(valStrings[4]);
 
 
-    PML.add(new sensorReading(lPixel[5], screwPos, lVal[selectedScan], scans));
-    PMR.add(new sensorReading(rPixel[5], screwPos+filamentDia, rVal[selectedScan], scans));
+    PML.add(new sensorReading(lPixel[0], screwPos, lVal[selectedScan], scans));
+    PMR.add(new sensorReading(rPixel[0], screwPos+filamentDia, rVal[selectedScan], scans));
 
     screwPos -= delta;
   }
@@ -205,7 +205,7 @@ void workupData() {
     if (count>3) { 
       //println(i);
       //println("trying to Reduce");
-      List<Point> reduced = SeriesReducer.reduce(points, 0.002);
+      List<Point> reduced = SeriesReducer.reduce(points, 0.02);
 
       for (int j = 0; j < reduced.size(); j++) {
         mapWriter.println("\tleftMap.add(new mapEntry("+i+","+reduced.get(j).x+","+(int)reduced.get(j).y+"));");
@@ -238,7 +238,7 @@ void workupData() {
     if (count>3) { 
       //println(i);
       //println("trying to Reduce");
-      List<Point> reduced = SeriesReducer.reduce(points, 0.002);
+      List<Point> reduced = SeriesReducer.reduce(points, 0.02);
 
       for (int j = 0; j < reduced.size(); j++) {
         mapWriter.println("\trightMap.add(new mapEntry("+i+","+reduced.get(j).x+","+(int)reduced.get(j).y+"));");
@@ -336,7 +336,7 @@ void workupDataC() {
   BufferedReader[] reader = new BufferedReader[scans];
 
   //create scans Readers
-  int selectedScan = 5;
+  int selectedScan = 0;
   reader[selectedScan] = createReader("scan"+selectedScan+".txt");
   //Read and throw away first line. Just titles for graphing in excel
   try {
@@ -375,8 +375,8 @@ void workupDataC() {
     rVal[selectedScan] =  float(valStrings[4]);
 
 
-    PML.add(new sensorReading(lPixel[5], screwPos, lVal[selectedScan], scans));
-    PMR.add(new sensorReading(rPixel[5], screwPos+filamentDia, rVal[selectedScan], scans));
+    PML.add(new sensorReading(lPixel[0], screwPos, lVal[selectedScan], scans));
+    PMR.add(new sensorReading(rPixel[0], screwPos+filamentDia, rVal[selectedScan], scans));
 
     screwPos -= delta;
   }
@@ -390,7 +390,7 @@ void workupDataC() {
   PrintWriter mapWriter;
   int[] pixelMapLengths = new int[512];
 
-  mapWriter = createWriter("leftMap.txt");
+  mapWriter = createWriter("leftMapC.txt");
   mapWriter.println(" struct mapPoint {\r\n"+
     " \tint intensity;\r\n"+
     "  \tfloat position;\r\n"+
@@ -410,7 +410,7 @@ void workupDataC() {
     mapWriter.println("const mapPoint lPixel"+i+"[]  PROGMEM = {");
     if (count>3) { 
 
-      List<Point> reduced = SeriesReducer.reduce(points, 0.002);
+      List<Point> reduced = SeriesReducer.reduce(points, 0.02);
 
       for (int j = 0; j < reduced.size()-1; j++) {
         mapWriter.println("\t{"+(int)reduced.get(j).y+", "+reduced.get(j).x+"},");
@@ -426,7 +426,7 @@ void workupDataC() {
 
 
   //Create the Right map
-  mapWriter = createWriter("rightMap.txt");
+  mapWriter = createWriter("rightMapC.txt");
   // Create an array list of the left shadow data an then reduce it.
   for (int i=0; i<256; i++) {
     List<Point> points = new ArrayList<Point>();

@@ -1,11 +1,46 @@
 void standby() {
   String[] valStrings = split(inString, ' ');
-
   for (int i=1; i<valStrings.length; i++) {
- //dataY[i-1] = float(valStrings[i])*bgCorrection[i-1][0]+bgCorrection[i-1][1];
-        dataY[i-1] = float(valStrings[i]);
+    if (normaliseIntensity)
+    {
+      //dataY[i-1] = float(valStrings[i])*bgCorrection[i-1][0]+bgCorrection[i-1][1];
+      if (first)
+      {
+        firstYData[i-1] = float(valStrings[i]);
+      }
+      else
+      {
+        dataY[i-1] = float(valStrings[i])/firstYData[i-1]*500;
+      }
+    }
+    else
+    {
+      dataY[i-1] = float(valStrings[i]);
+      
+    }
+    if ( !(first) && (logDataY) )
+    {
+      if (i!=1)
+      {
+        dataYOut.print(",");
+      }
+      dataYOut.print(dataY[i-1]);
+    }
+    
     if (i == dataY.length-1) {
       break;
+    }
+  }
+  if (first)
+  {
+    first=false;
+  }
+  else
+  {
+    if (logDataY)
+    {
+      dataYOut.println("");
+      dataYOut.flush();
     }
   }
   //dataY[20] = dataY[20]*750/418-35;
@@ -30,9 +65,12 @@ void getRawData() {
     }
   }
   for (int i=0; i<256; i++) {
-    print(dataY[i]+"\t");
-  } 
-  println();
+   print("("+i+")"+dataY[i]+"\t");
+ }
+ println();
+ println();
+ println();
+  
   //if (detectYJump()) {
   //  serial.write('D');
   //} else {
@@ -47,7 +85,7 @@ void getRawData() {
 
 void beginHome() {
   //There is just error in Logic here. Coming from the right works coming from the left has flawed logic.
-
+println("Homming...");
   //beginHome does not modify the previous state
   float overshoot = .5;
   String[] valStrings = split(inString, ' ');
@@ -284,6 +322,7 @@ void exitCollectBackground() {
 
 
 void beginScan() {
+  println("Beginning scan....");
   String[] valStrings = split(inString, ' ');
   valStrings[0] = "" + valStrings[0].charAt(0);
 
